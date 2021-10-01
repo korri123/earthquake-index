@@ -1,6 +1,6 @@
 import { Type } from 'class-transformer';
 import 'reflect-metadata';
-import { SortOption } from './sortFunctions';
+import { SortFunction } from './sortUtils';
 
 export class EarthquakeData {
   'depth': number;
@@ -16,13 +16,7 @@ export class EarthquakeData {
   }
 }
 
-export type SortFunction = (a: EarthquakeData, b: EarthquakeData) => number;
-
 export class Earthquakes {
   @Type(() => EarthquakeData)
   results: EarthquakeData[] = [];
-
-  sort(sortFn: SortFunction) {
-    this.results.sort(sortFn);
-  }
 }

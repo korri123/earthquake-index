@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './App.css';
-import { defaultCtx, GlobalEarthquakeContext } from './earthquakeContext';
+import { defaultCtx, EarthquakeContext, GlobalEarthquakeContext } from './earthquakeContext';
 import { Earthquakes } from './types';
 import EarthquakeList from './components/EarthquakeList';
 import { requestEarthquakeData } from './service';
 import EarthquakeListConfiguration from './components/EarthquakeListConfiguration';
-import { SortOption, sortOptions } from './sortFunctions';
+import { SortOption, sortOptions } from './sortUtils';
 
 const App = () => {
   const [earthquakes, setEarthquakes] = useState<Earthquakes>(new Earthquakes());
@@ -18,6 +18,11 @@ const App = () => {
     })();
   }, []);
 
+  useEffect(() => {
+    const sortedEarthquakes = new Earthquakes()
+    sortedEarthquakes.results = [...earthquakes.results].sort(sortOption.sortFunction);
+    setEarthquakes(sortedEarthquakes);
+  }, [sortOption]);
   return (
     <GlobalEarthquakeContext.Provider value={{sortOption, setSortOption}}>
       <div className="App">

@@ -1,4 +1,6 @@
-import { EarthquakeData, SortFunction } from './types';
+import { EarthquakeData } from './types';
+
+export type SortFunction = (a: EarthquakeData, b: EarthquakeData) => number;
 
 export interface SortOption {
   name: string
@@ -7,8 +9,9 @@ export interface SortOption {
 }
 
 const makeSortFn = (fieldFn: (earthquake: EarthquakeData) => number, reverse?: boolean): SortFunction => {
+  const sortNums = (a: number, b: number) => a - b;
   return (a: EarthquakeData, b: EarthquakeData) => {
-    return !reverse ? fieldFn(a) - fieldFn(b) : fieldFn(b) - fieldFn(a);
+    return !reverse ? sortNums(fieldFn(b), fieldFn(a)) : sortNums(fieldFn(a), fieldFn(b));
   };
 };
 

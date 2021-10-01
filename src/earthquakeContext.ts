@@ -1,4 +1,4 @@
-import { SortOption, sortOptions } from './sortFunctions';
+import { SortOption, sortOptions } from './sortUtils';
 import React from 'react';
 
 export interface EarthquakeContext {

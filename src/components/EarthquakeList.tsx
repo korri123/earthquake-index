@@ -16,7 +16,7 @@ const HeaderListColumn = ({ children }: { children: React.ReactNode }) => {
 
 const ListItem = ({ earthquake }: { earthquake: EarthquakeData }) => {
   const { depth, humanReadableLocation, latitude, longitude, quality, size } = earthquake;
-  return <div style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
+  return <div style={{ display: 'flex', flexDirection: 'row', width: '100%' }} key={earthquake.timestamp}>
     <ListColumn>{humanReadableLocation}</ListColumn>
     <ListColumn>{latitude}</ListColumn>
     <ListColumn>{longitude}</ListColumn>
@@ -28,10 +28,6 @@ const ListItem = ({ earthquake }: { earthquake: EarthquakeData }) => {
 }
 
 const EarthquakeList = ({ earthquakes }: Props) => {
-  const { sortOption } = useContext<EarthquakeContext>(GlobalEarthquakeContext);
-  useEffect(() => {
-    earthquakes.sort(sortOption.sortFunction)
-  }, [sortOption, earthquakes]);
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       <div style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>

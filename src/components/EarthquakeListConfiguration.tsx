@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import Select from 'react-select';
-import { SortOption, sortOptions } from '../sortFunctions';
+import { SortOption, sortOptions } from '../sortUtils';
 import { GlobalEarthquakeContext } from '../earthquakeContext';
 
 
