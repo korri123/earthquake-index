@@ -6,7 +6,7 @@ interface Props {
 }
 
 const ListColumn = ({ children }: { children: React.ReactNode }) => {
-  return <div style={{ flex: 1, marginBottom: '0.2em' }}>{children}</div>
+  return <div style={{ flex: 1, marginBottom: '1em', alignSelf: 'center' }} className='list-column'>{children}</div>
 }
 
 const HeaderListColumn = ({ children }: { children: React.ReactNode }) => {
@@ -15,7 +15,8 @@ const HeaderListColumn = ({ children }: { children: React.ReactNode }) => {
 
 const ListItem = ({ earthquake }: { earthquake: EarthquakeData }) => {
   const { depth, humanReadableLocation, latitude, longitude, quality, size } = earthquake;
-  return <div style={{ display: 'flex', flexDirection: 'row', width: '100%' }} key={earthquake.timestamp}>
+  return <div style={{ display: 'flex', flexDirection: 'row', width: '100%', height: '4em' }} key={earthquake.timestamp}
+    className='list-item'>
     <ListColumn>{humanReadableLocation}</ListColumn>
     <ListColumn>{latitude}</ListColumn>
     <ListColumn>{longitude}</ListColumn>

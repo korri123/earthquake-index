@@ -1,0 +1,37 @@
+
+input, select {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 2.1em;
+    text-align: center;
+    color: #888;
+    font-size: 1em;
+}
+
+.list-item:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+.toolbar > * {
+    width: 30%;
+}
+
+.toolbar-label {
+    margin: 0.5em 0.6em 0.5em 0.5em;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #282c34;
+        color: #a4e4f1;
+    }
+
+    h1, h2, h3, h4 {
+        color: #94d77e;
+    }
+
+    input, select {
+        background-color: #383b49;
+        border: 1px solid #537273;
+    }
+}

@@ -1,10 +1,10 @@
-import React, { SetStateAction, useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import './App.css';
 import { GlobalEarthquakeContext } from './earthquakeContext';
 import { Earthquakes } from './types';
 import EarthquakeList from './components/EarthquakeList';
 import { requestEarthquakeData } from './service';
-import EarthquakeListConfiguration from './components/EarthquakeListConfiguration';
+import Toolbar from './components/Toolbar';
 import { SortOption, sortOptions } from './sortUtils';
 import { log, setStateAndRef } from './utility';
 
@@ -18,7 +18,7 @@ const App = () => {
   const [nextRefreshTime, setNextRefreshTime] = useState<number>(getNextRefreshTime())
 
   const updateEarthquakeData = async () => {
-    console.log('fetching new data from server...')
+    log('fetching new data from server...')
     setEarthquakes(await requestEarthquakeData())
   };
 
@@ -31,17 +31,14 @@ const App = () => {
 
   // initialize poller / refresher
   useEffect(() => {
-    const clearTimeoutCallback = () => pollTimerRef.current && clearTimeout( pollTimerRef.current);
+    const clearTimeoutCallback = () => pollTimerRef.current && clearTimeout(pollTimerRef.current);
     const resetTimeout = () => {
       clearTimeoutCallback();
-      log('resetting')
       setNextRefreshTime(getNextRefreshTime());
-
-      //setPollTimer(setTimeout(pollItems, pollTime * 1000))
       setStateAndRef(setPollTimer, pollTimerRef, setTimeout(pollItems, pollTime * 1000));
     }
     const pollItems = () => {
-      (async() => {
+      (async () => {
         await updateEarthquakeData();
         resetTimeout();
       })();
@@ -57,11 +54,11 @@ const App = () => {
     const sortedEarthquakes = new Earthquakes()
     sortedEarthquakes.results = [...earthquakes.results].sort(sortOption.sortFunction);
     if (sortedEarthquakes.results.length !== earthquakes.results.length ||
-        sortedEarthquakes.results.some((value, index) => value !== earthquakes.results[index])) {
+      sortedEarthquakes.results.some((value, index) => value !== earthquakes.results[index])) {
       // check if arrays are not equal to prevent useEffect loop
       setEarthquakes(sortedEarthquakes);
     }
-    console.log('spam')
+    log('resorting list')
   }, [sortOption, earthquakes.results]);
 
   return (
@@ -70,13 +67,12 @@ const App = () => {
         <header>
           <h1>Earthquake Index</h1>
         </header>
-        <main>
-          <EarthquakeListConfiguration/>
+        <main style={{ width: '70%', margin: '0 auto' }}>
+          <Toolbar/>
           <EarthquakeList earthquakes={earthquakes}/>
         </main>
       </div>
     </GlobalEarthquakeContext.Provider>
-
   );
 }
 
