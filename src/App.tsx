@@ -65,7 +65,7 @@ const App = () => {
     <GlobalEarthquakeContext.Provider value={{ sortOption, setSortOption, pollTime, setPollTime, nextRefreshTime }}>
       <div className="App">
         <header>
-          <h1>Earthquake Index</h1>
+          <h1>&#x1f30e; Earthquake Index</h1>
         </header>
         <main style={{ width: '70%', margin: '0 auto' }}>
           <Toolbar/>

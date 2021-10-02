@@ -15,7 +15,7 @@ const HeaderListColumn = ({ children }: { children: React.ReactNode }) => {
 
 const ListItem = ({ earthquake }: { earthquake: EarthquakeData }) => {
   const { depth, humanReadableLocation, latitude, longitude, quality, size } = earthquake;
-  return <div style={{ display: 'flex', flexDirection: 'row', width: '100%', height: '4em' }} key={earthquake.timestamp}
+  return <div style={{ display: 'flex', flexDirection: 'row', width: '100%', height: '4em' }}
     className='list-item'>
     <ListColumn>{humanReadableLocation}</ListColumn>
     <ListColumn>{latitude}</ListColumn>
@@ -39,7 +39,7 @@ const EarthquakeList = ({ earthquakes }: Props) => {
         <HeaderListColumn>Size</HeaderListColumn>
         <HeaderListColumn>Depth</HeaderListColumn>
       </div>
-      {earthquakes.results.map(earthquake => <ListItem earthquake={earthquake}/>)}
+      {earthquakes.results.map(earthquake => <ListItem earthquake={earthquake} key={earthquake.humanReadableLocation + earthquake.timestamp}/>)}
     </div>
   );
 };

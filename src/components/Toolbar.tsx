@@ -1,5 +1,4 @@
 import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
-import Select from 'react-select';
 import { SortOption, sortOptions } from '../sortUtils';
 import { GlobalEarthquakeContext } from '../earthquakeContext';
 import { log, setStateAndRef } from '../utility';
@@ -12,7 +11,7 @@ const SortOptions = () => {
     <div className="toolbar-label">Sort by</div>
     <select onChange={event => setSortOption(sortOptions[event.currentTarget.value])}>
       {Object.values(sortOptions).map((option: SortOption) => {
-        return <option value={option.id}>{option.name}</option>
+        return <option value={option.id} key={option.id}>{option.name}</option>
       })}
     </select>
   </div>
