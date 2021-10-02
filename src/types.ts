@@ -1,6 +1,5 @@
 import { Type } from 'class-transformer';
 import 'reflect-metadata';
-import { SortFunction } from './sortUtils';
 
 export class EarthquakeData {
   'depth': number;

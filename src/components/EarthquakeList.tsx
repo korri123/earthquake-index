@@ -1,6 +1,5 @@
-import React, { useContext, useEffect } from 'react';
+import React from 'react';
 import { EarthquakeData, Earthquakes } from '../types';
-import { EarthquakeContext, GlobalEarthquakeContext } from '../earthquakeContext';
 
 interface Props {
   earthquakes: Earthquakes
