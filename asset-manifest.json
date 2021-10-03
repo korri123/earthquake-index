@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/earthquake-index/static/css/main.b98e47ef.chunk.css",
+    "main.js": "/earthquake-index/static/js/main.b0877001.chunk.js",
+    "main.js.map": "/earthquake-index/static/js/main.b0877001.chunk.js.map",
+    "runtime-main.js": "/earthquake-index/static/js/runtime-main.9d0ce6f0.js",
+    "runtime-main.js.map": "/earthquake-index/static/js/runtime-main.9d0ce6f0.js.map",
+    "static/js/2.87ab1947.chunk.js": "/earthquake-index/static/js/2.87ab1947.chunk.js",
+    "static/js/2.87ab1947.chunk.js.map": "/earthquake-index/static/js/2.87ab1947.chunk.js.map",
+    "index.html": "/earthquake-index/index.html",
+    "static/css/main.b98e47ef.chunk.css.map": "/earthquake-index/static/css/main.b98e47ef.chunk.css.map",
+    "static/js/2.87ab1947.chunk.js.LICENSE.txt": "/earthquake-index/static/js/2.87ab1947.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9d0ce6f0.js",
+    "static/js/2.87ab1947.chunk.js",
+    "static/css/main.b98e47ef.chunk.css",
+    "static/js/main.b0877001.chunk.js"
+  ]
+}
