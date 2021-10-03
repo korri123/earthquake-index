@@ -21,10 +21,12 @@ const PollOptions = () => {
   const { pollTime, setPollTime } = useContext(GlobalEarthquakeContext);
 
   return <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-    <div className='toolbar-label'>Fetch time</div>
+    <div className='toolbar-label'>Refresh time</div>
     <input type={'number'} value={pollTime} onChange={(e) => {
       setPollTime(parseFloat(e.currentTarget.value))
-    }} style={{width: '5em', height: '2.1em', textAlign: 'center', color: '#888', fontSize: '1em'}}/></div>
+    }} style={{width: '5em', height: '2.1em', textAlign: 'center', color: '#888', fontSize: '1em'}}/>
+    <div className="toolbar-label">seconds</div>
+  </div>
 }
 
 const NextFetchTimer = () => {
@@ -50,14 +52,13 @@ const NextFetchTimer = () => {
   }, [getSecondsLeft]);
 
   return <div>
-    <span>Fetching in <b>{secondsLeft >= 0 ? secondsLeft : 0}</b> seconds</span>
+    <span>Refreshing in <b>{secondsLeft >= 0 ? secondsLeft : 0}</b> seconds</span>
   </div>
 }
 
 const Toolbar = () => {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-      color: '#fff7c7'}} className='toolbar'>
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between'}} className='toolbar'>
       <PollOptions/>
       <NextFetchTimer/>
       <SortOptions/>

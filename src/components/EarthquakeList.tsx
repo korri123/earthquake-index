@@ -29,7 +29,7 @@ const ListItem = ({ earthquake }: { earthquake: EarthquakeData }) => {
 
 const EarthquakeList = ({ earthquakes }: Props) => {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
+    <div style={{ display: 'flex', flexDirection: 'column' }} className='earthquake-list'>
       <div style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
         <HeaderListColumn>Location</HeaderListColumn>
         <HeaderListColumn>Latitude</HeaderListColumn>

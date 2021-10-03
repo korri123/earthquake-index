@@ -1,5 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200;400&display=swap');
 
+header {
+    height: 5em;
+    margin-bottom: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(0deg, rgb(226, 234, 252) 0%, #74c0f6 100%);
+    border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+body {
+    background-color: #eeeffc;
+}
+
 input, select {
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -7,6 +21,13 @@ input, select {
     text-align: center;
     color: #888;
     font-size: 1em;
+}
+
+.earthquake-list {
+    background-color: rgba(247, 247, 250, 0.71);
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: -1px 1px 5px 0 rgba(0,0,0,0.1);
 }
 
 .list-item:hover {
@@ -34,19 +55,21 @@ header > h1 {
     font-weight: normal;
 }
 
+
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #202e3a;
         color: #a4e4f1;
     }
 
+    .earthquake-list {
+        background-color: rgba(0, 0, 0, 0.11);
+        padding: 1em;
+        border-radius: 8px;
+    }
+
     header {
         background: linear-gradient(0deg, rgba(24, 91, 61, 0.15) 0%, #0e191c 100%);
-        height: 5em;
-        margin-bottom: 1.5em;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
         border-bottom: 1px solid rgb(145, 255, 152);
     }
 
@@ -65,5 +88,13 @@ header > h1 {
 
     .list-item {
         border-bottom: 1px solid rgba(20, 176, 49, 0.49);
+    }
+
+    .list-item:hover {
+        border-bottom: 1px solid rgba(20, 176, 49, 1.0);
+    }
+
+    .toolbar {
+        color: #fff7c7;
     }
 }
