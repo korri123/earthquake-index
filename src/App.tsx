@@ -7,6 +7,17 @@ import { requestEarthquakeData } from './service';
 import Toolbar from './components/Toolbar';
 import { SortOption, sortOptions } from './sortUtils';
 import { log, setStateAndRef } from './utility';
+import Insights from './components/Insights';
+
+const calculateInsights = (earthquakes: Earthquakes) => {
+  const data = earthquakes.results;
+  if (!data.length)
+    return {averageSize: 0, biggest: 0, latestDate: new Date()};
+  const averageSize = data.map(e => e.size).reduce((a, b) => a + b) / data.length;
+  const biggest = Math.max(...data.map(e => e.size));
+  const latestDate: Date = data.map(e => e.getTime()).reduce((a, b) => a.getTime() > b.getTime() ? a : b);
+  return {averageSize, biggest, latestDate};
+}
 
 const App = () => {
   const [earthquakes, setEarthquakes] = useState<Earthquakes>(new Earthquakes());
@@ -58,9 +69,10 @@ const App = () => {
       // check if arrays are not equal to prevent useEffect loop
       setEarthquakes(sortedEarthquakes);
     }
-    log('resorting list')
+    log('sorting list')
   }, [sortOption, earthquakes.results]);
 
+  const { averageSize, biggest, latestDate } = calculateInsights(earthquakes);
   return (
     <GlobalEarthquakeContext.Provider value={{ sortOption, setSortOption, pollTime, setPollTime, nextRefreshTime }}>
       <div className="App">
@@ -69,6 +81,7 @@ const App = () => {
         </header>
         <main style={{ width: '70%', margin: '0 auto' }}>
           <Toolbar/>
+          <Insights averageSize={averageSize} biggest={biggest} latestDate={latestDate}/>
           <EarthquakeList earthquakes={earthquakes}/>
         </main>
       </div>

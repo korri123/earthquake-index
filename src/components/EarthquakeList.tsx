@@ -27,7 +27,7 @@ const ListItem = ({ earthquake }: { earthquake: EarthquakeData }) => {
   </div>
 }
 
-const EarthquakeList = ({ earthquakes }: Props) => {
+const EarthquakeList = ({ earthquakes } : Props) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }} className='earthquake-list'>
       <div style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>

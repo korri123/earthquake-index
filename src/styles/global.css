@@ -27,7 +27,7 @@ input, select {
     background-color: rgba(247, 247, 250, 0.71);
     padding: 1em;
     border-radius: 8px;
-    box-shadow: -1px 1px 5px 0 rgba(0,0,0,0.1);
+    margin-bottom: 2em;
 }
 
 .list-item:hover {
@@ -50,51 +50,66 @@ h1, h2, h3, h4 {
     margin: 0;
 }
 
-header > h1 {
+header > h1, .insight-item h1 {
     font-family: 'Gemunu Libre', sans-serif;
+    font-weight: normal;
+    color: white;
+}
+
+.insight-item {
+    width: 30%;
+    transition: background-color 0.1s linear;
+}
+
+.insight-item h2 {
     font-weight: normal;
 }
 
-
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #202e3a;
-        color: #a4e4f1;
-    }
-
-    .earthquake-list {
-        background-color: rgba(0, 0, 0, 0.11);
-        padding: 1em;
-        border-radius: 8px;
-    }
-
-    header {
-        background: linear-gradient(0deg, rgba(24, 91, 61, 0.15) 0%, #0e191c 100%);
-        border-bottom: 1px solid rgb(145, 255, 152);
-    }
-
-    h1, h2, h3, h4 {
-        color: #94d77e;
-    }
-
-    header > h1 {
-        color: #e9f6e9;
-    }
-
-    input, select {
-        background-color: #383b49;
-        border: 1px solid #537273;
-    }
-
-    .list-item {
-        border-bottom: 1px solid rgba(20, 176, 49, 0.49);
-    }
-
-    .list-item:hover {
-        border-bottom: 1px solid rgba(20, 176, 49, 1.0);
-    }
-
-    .toolbar {
-        color: #fff7c7;
-    }
+.insight-item:hover {
+    background-color: rgba(0, 0, 0, 0.2);
 }
+
+.insight-item h1 {
+    font-weight: normal;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+/* dark mode */
+body {
+    background-color: #202e3a;
+    color: #a4e4f1;
+}
+
+.earthquake-list, .insight-item {
+    background-color: rgba(0, 0, 0, 0.11);
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: -1px 1px 10px 0 rgba(0,0,0,0.2);
+}
+
+header {
+    background: linear-gradient(0deg, rgba(24, 91, 61, 0.15) 0%, #0e191c 100%);
+    border-bottom: 1px solid rgb(145, 255, 152);
+}
+
+h1, h2, h3, h4 {
+    color: #94d77e;
+}
+
+input, select {
+    background-color: #383b49;
+    border: 1px solid #537273;
+}
+
+.list-item {
+    border-bottom: 1px solid rgba(20, 176, 49, 0.49);
+}
+
+.list-item:hover {
+    border-bottom: 1px solid rgba(20, 176, 49, 1.0);
+}
+
+.toolbar {
+    color: #fff7c7;
+}
+/* /dark mode */
